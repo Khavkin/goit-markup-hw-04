@@ -12,6 +12,8 @@
   --secondary-section-background: #f5f4fa;
   --header-border-color: #ececec;
   --gallery-item-border: #eeeeee;
+  --social-icons-color: #afb1b8;
+  --footer-social-background: rgba(255, 255, 255, 0.1);
 }
 
 .visually-hidden {
@@ -158,6 +160,11 @@ header {
   gap: 50px;
 }
 .contacts .link {
+  display: flex;
+  align-items: center;
+
+  padding: 32px 0;
+
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: 0.02em;
@@ -174,11 +181,28 @@ header {
   color: var(--accent-color);
 }
 
+.contacts .icon {
+  vertical-align: middle;
+  margin-right: 10px;
+  fill: var(--contact-color);
+}
+
+.contacts .link:hover .icon,
+.contacts .link:focus .icon {
+  fill: var(--accent-color);
+}
+
 /* hero section */
 
 .hero {
+  background: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url(../images/hero-img.jpg);
   background-color: var(--footer-background-color);
+  background-position: center;
+  background-size: cover;
   text-align: center;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .hero.section {
@@ -213,7 +237,14 @@ header {
   letter-spacing: 0.06em;
   color: var(--main-white-color);
   background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+}
+
+.order-button:hover,
+.order-button:focus {
+  background: #188ce8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* advantage section */
@@ -230,6 +261,12 @@ header {
 .advantage .card {
   flex-basis: calc((100%-3 * 30px) / 4);
   /* 270px; */
+}
+
+.advantage .icon-wrap {
+  padding: 25px 100px;
+  margin-bottom: 30px;
+  background-color: var(--filter-button-background);
 }
 
 .advantage .title {
@@ -276,14 +313,15 @@ header {
 .our-team .item {
   flex-basis: calc((100%-3 * 30px) / 4);
 
-  padding-bottom: 30px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
 }
-.member-photo {
-  margin-bottom: 30px;
+
+.description-wrap {
+  padding: 30px 32px;
 }
+
 .member-title {
   margin-top: 0;
   margin-bottom: 10px;
@@ -296,10 +334,74 @@ header {
 
 .member-position {
   margin-top: 0px;
-  margin-bottom: 0px;
+  margin-bottom: 16px;
 
   font-size: 16px;
   line-height: 1.1875;
+}
+
+.social-list {
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 12px;
+  border-radius: 50%;
+}
+
+.our-team .social-link:hover,
+.our-team .social-link:focus {
+  background-color: var(--accent-color);
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--social-icons-color);
+}
+
+.our-team .social-link:hover .social-icon,
+.our-team .social-link:focus .social-icon {
+  fill: var(--main-background-color);
+}
+
+/* clients section */
+
+.clients .container {
+  text-align: center;
+}
+
+.clients-list {
+  display: flex;
+  gap: 30px;
+}
+
+.client-link {
+  display: block;
+  width: 170px;
+  height: 92px;
+  padding: 16px 32px;
+
+  border: 1px solid var(--social-icons-color);
+  border-radius: 4px;
+}
+
+.client-link:hover .client-icon,
+.client-link:focus .client-icon {
+  fill: var(--accent-color);
+}
+
+.client-icon {
+  width: 106px;
+  height: 60px;
+  fill: var(--social-icons-color);
 }
 
 /* footer */
@@ -312,6 +414,11 @@ footer.section {
   padding-top: 60px;
   padding-bottom: 60px;
 }
+
+footer .container {
+  display: flex;
+}
+
 footer .logo {
   display: inline-block;
   padding-top: 0;
@@ -343,6 +450,23 @@ footer .link:focus {
   color: var(--main-white-color);
   text-decoration: none;
   font-style: normal;
+}
+
+footer .social-wrap {
+  margin-left: 70px;
+}
+
+footer .social-link {
+  background: var(--footer-social-background);
+}
+
+footer .social-link:hover,
+footer .social-link:focus {
+  background: var(--accent-color);
+}
+
+footer .social-icon {
+  fill: var(--main-white-color);
 }
 
 /* portfolio.html */
@@ -379,6 +503,8 @@ footer .link:focus {
 .filter .button:focus {
   color: var(--main-white-color);
   background-color: var(--accent-color);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
 /* gallery */
@@ -395,6 +521,11 @@ footer .link:focus {
 
 .gallery .card {
   flex-basis: calc((100% - 2 * 30px) / 3);
+}
+
+.gallery .card:hover {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .gallery .desc-wrapper {
